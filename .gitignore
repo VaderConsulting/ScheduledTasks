@@ -1,0 +1,50 @@
+# Build output
+bin/
+obj/
+
+# Visual Studio
+.vs/
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+
+# Legacy source-control bindings
+*.scc
+*.vssscc
+*.vspscc
+
+# NuGet
+packages/
+
+
+# Secrets / credentials (never upload)
+*.pfx
+*.p12
+*.pem
+*.key
+.env
+**/appsettings.*.local.json
+# Logs and temp
+*.log
+*.tmp
+*.bak
+
+# Import skips
+_UpgradeReport_Files/
+Backup/
+UpgradeLog.htm
+UpgradeLog.XML
+
+# Redacted originals (see *.example files)
+TaskFolder.cs
+TaskCollection.cs
+TaskService.cs
+TaskEditor/TaskEditDialog.cs
+TaskEditor/TaskServiceConnectDialog.cs
+TaskEditor/TaskSchedulerWizard.cs
+TaskEditor/ComObjectSelectionDialog.cs
+TaskEditor/UIComponents/ComHandlerActionUI.cs
+TaskEditor/Native/CREDUI.cs
+TaskEditor/Native/CredentialsDialog.cs
+TestTaskService/Program.cs
