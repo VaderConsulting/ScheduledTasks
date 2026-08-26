@@ -150,7 +150,7 @@ namespace System.Windows.Forms
 		/// </summary>
 		public override void Reset()
 		{
-			this.Target = this.UserName = this.Caption = this.Message = this.Password =REDACTED;
+			this.Target = this.UserName = this.Caption = this.Message = this.Password = null;
 			this.Banner = null;
 			this.EncryptPassword = this.SaveChecked = false;
 			this.Options = CredentialsDialogOptions.Default;
@@ -184,7 +184,7 @@ namespace System.Windows.Forms
 			try
 			{
 				StringBuilder userName = new StringBuilder(this.UserName, maxStringLength);
-				StringBuilder password =REDACTED StringBuilder(maxStringLength);
+				StringBuilder password = new StringBuilder(maxStringLength);
 				bool save = this.SaveChecked;
 
 				if (string.IsNullOrEmpty(this.Target)) this.Target = this.DefaultTarget;
@@ -223,7 +223,7 @@ namespace System.Windows.Forms
 					this.SecurePassword = newPassword;
 				}
 				else
-					this.Password =REDACTED;
+					this.Password = password.ToString();
 
 				// Update other properties
 				this.UserName = userName.ToString();

@@ -600,7 +600,7 @@ namespace Microsoft.Win32.TaskScheduler
 				flagExecutorIsGroup = false;
 				if (IsV2)
 					td.Principal.GroupId = null;
-				td.Principal.UserId =REDACTED;
+				td.Principal.UserId = acct;
 				td.Principal.LogonType = TaskLogonType.ServiceAccount;
 				//this.flagExecutorIsCurrentUser = false;
 			}
@@ -612,7 +612,7 @@ namespace Microsoft.Win32.TaskScheduler
 					return;
 				}
 				td.Principal.GroupId = acct;
-				td.Principal.UserId =REDACTED;
+				td.Principal.UserId = null;
 				td.Principal.LogonType = TaskLogonType.Group;
 				//this.flagExecutorIsCurrentUser = false;
 			}
@@ -620,7 +620,7 @@ namespace Microsoft.Win32.TaskScheduler
 			{
 				if (IsV2)
 					td.Principal.GroupId = null;
-				td.Principal.UserId =REDACTED;
+				td.Principal.UserId = acct;
 				//this.flagExecutorIsCurrentUser = this.UserIsExecutor(objArray[0].ObjectName);
 				if (td.Principal.LogonType == TaskLogonType.Group)
 				{
@@ -777,11 +777,11 @@ namespace Microsoft.Win32.TaskScheduler
 		private void secOptPage_Commit(object sender, AeroWizard.WizardPageConfirmEventArgs e)
 		{
 			string user = this.TaskDefinition.Principal.UserId;
-			Password =REDACTED;
+			Password = null;
 			if (this.TaskDefinition.Principal.LogonType == TaskLogonType.InteractiveTokenOrPassword || this.TaskDefinition.Principal.LogonType == TaskLogonType.Password)
 			{
-				Password =REDACTED;
-				if (Password =REDACTED null)
+				Password = InvokeCredentialDialog(user);
+				if (Password == null)
 				{
 					MessageBox.Show(this, EditorProperties.Resources.UserAuthenticationError, null);
 					e.Cancel = true;

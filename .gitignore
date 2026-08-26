@@ -37,14 +37,4 @@ UpgradeLog.htm
 UpgradeLog.XML
 
 # Redacted originals (see *.example files)
-TaskFolder.cs
-TaskCollection.cs
-TaskService.cs
-TaskEditor/TaskEditDialog.cs
-TaskEditor/TaskServiceConnectDialog.cs
-TaskEditor/TaskSchedulerWizard.cs
-TaskEditor/ComObjectSelectionDialog.cs
-TaskEditor/UIComponents/ComHandlerActionUI.cs
-TaskEditor/Native/CREDUI.cs
-TaskEditor/Native/CredentialsDialog.cs
 TestTaskService/Program.cs

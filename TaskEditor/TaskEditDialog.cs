@@ -270,12 +270,12 @@ namespace Microsoft.Win32.TaskScheduler
 				else
 				{
 					string user = this.TaskDefinition.Principal.ToString();
-					string pwd =REDACTED;
+					string pwd = null;
 					TaskFolder fld = this.TaskService.GetFolder(this.TaskFolder);
 					if (this.TaskDefinition.Principal.LogonType == TaskLogonType.InteractiveTokenOrPassword || this.TaskDefinition.Principal.LogonType == TaskLogonType.Password)
 					{
-						pwd =REDACTED;
-						if (pwd =REDACTED null)
+						pwd = InvokeCredentialDialog(user);
+						if (pwd == null)
 						{
 							//throw new System.Security.Authentication.AuthenticationException(EditorProperties.Resources.UserAuthenticationError);
 							MessageBox.Show(EditorProperties.Resources.Error_PasswordMustBeProvided, null, MessageBoxButtons.OK, MessageBoxIcon.Error);

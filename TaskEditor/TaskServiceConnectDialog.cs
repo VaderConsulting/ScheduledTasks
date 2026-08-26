@@ -85,7 +85,7 @@ namespace Microsoft.Win32.TaskScheduler
 					this.TargetServer = value.TargetServer;
 					this.User = value.UserName;
 					this.Domain = value.UserAccountDomain;
-					this.Password =REDACTED;
+					this.Password = value.UserPassword;
 					this.v1Check.Checked = this.ForceV1 = value.HighestSupportedVersion <= new Version(1, 1);
 
 					if (this.TargetServer == null && this.User == null)
@@ -183,7 +183,7 @@ namespace Microsoft.Win32.TaskScheduler
 					this.Domain = userParts[0];
 					this.User = userParts[1];
 				}
-				this.Password =REDACTED;
+				this.Password = dlg.Password;
 			}
 		}
 
@@ -194,7 +194,7 @@ namespace Microsoft.Win32.TaskScheduler
 			setUserBtn.Enabled = !localComputerRadio.Checked && otherUserCheckbox.Checked;
 			if (localComputerRadio.Checked)
 			{
-				this.TargetServer = this.User = this.Domain = this.Password =REDACTED;
+				this.TargetServer = this.User = this.Domain = this.Password = null;
 				SetUserText(null);
 				remoteComputerText.Clear();
 			}

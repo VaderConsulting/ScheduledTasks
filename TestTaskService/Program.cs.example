@@ -340,7 +340,7 @@ namespace TestTaskService
 			DisplayTask(t, false);
 			ts.RootFolder.DeleteTask(t.Name);
 
-			t = ts.Execute("notepad.exe").AtLogonOf("EXAMPLE\\user").AsTask("Test");
+			t = ts.Execute("notepad.exe").AtLogonOf("AMERICAS\\dahall").AsTask("Test");
 			DisplayTask(t, false);
 			ts.RootFolder.DeleteTask(t.Name);
 
@@ -497,7 +497,7 @@ namespace TestTaskService
 			{
 				TaskDefinition td = ts.NewTask();
 				td.Data = "Your data";
-				//td.Principal.UserId = "REDACTED";
+				//td.Principal.UserId = "SYSTEM";
 				//td.Principal.LogonType = TaskLogonType.ServiceAccount;
 				td.Principal.LogonType = TaskLogonType.InteractiveToken;
 				td.RegistrationInfo.Author = "example";
@@ -578,11 +578,11 @@ namespace TestTaskService
 
 					td.Triggers.Add(new RegistrationTrigger { Delay = TimeSpan.FromMinutes(5) });
 
-					td.Triggers.Add(new SessionStateChangeTrigger { StateChange = TaskSessionStateChangeType.ConsoleConnect, UserId =REDACTED });
+					td.Triggers.Add(new SessionStateChangeTrigger { StateChange = TaskSessionStateChangeType.ConsoleConnect, UserId = user });
 					td.Triggers.Add(new SessionStateChangeTrigger { StateChange = TaskSessionStateChangeType.ConsoleDisconnect });
 					td.Triggers.Add(new SessionStateChangeTrigger { StateChange = TaskSessionStateChangeType.RemoteConnect });
 					td.Triggers.Add(new SessionStateChangeTrigger { StateChange = TaskSessionStateChangeType.RemoteDisconnect });
-					td.Triggers.Add(new SessionStateChangeTrigger { StateChange = TaskSessionStateChangeType.SessionLock, UserId =REDACTED });
+					td.Triggers.Add(new SessionStateChangeTrigger { StateChange = TaskSessionStateChangeType.SessionLock, UserId = user });
 					td.Triggers.Add(new SessionStateChangeTrigger { StateChange = TaskSessionStateChangeType.SessionUnlock });
 				}
 
@@ -592,7 +592,7 @@ namespace TestTaskService
 				if (isV12)
 				{
 					lTrigger.Delay = TimeSpan.FromMinutes(15);
-					lTrigger.UserId =REDACTED;
+					lTrigger.UserId = user;
 					lTrigger.Repetition.Interval = TimeSpan.FromSeconds(1000);
 				}
 
@@ -628,7 +628,7 @@ namespace TestTaskService
 					td.Actions.Context = "Author";
 					if (td.Principal.LogonType == TaskLogonType.InteractiveToken || td.Principal.LogonType == TaskLogonType.Group)
 						td.Actions.Add(new ShowMessageAction("Running Notepad", "Info"));
-					td.Actions.Add(new EmailAction("Testing", "redacted@example.com", "redacted@example.com", "You've got mail.", "mail.myisp.com"));
+					td.Actions.Add(new EmailAction("Testing", "redacted@example.com", "user@example.com", "You've got mail.", "mail.myisp.com"));
 					td.Actions.Add(new ComHandlerAction(new Guid("{BF300543-7BA5-4C17-A318-9BBDB7429A21}"), @"C:\Users\example\Documents\Visual Studio 2010\Projects\TaskHandlerProxy\TaskHandlerSample\bin\Release\TaskHandlerSample.dll|TaskHandlerSample.TaskHandler|MoreData"));
 				}
 

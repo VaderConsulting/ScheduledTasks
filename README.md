@@ -31,7 +31,7 @@ Open `TaskService.sln` in Visual Studio.
 
 - **Authors (package metadata):** David Hall
 - **Assembly company:** CodePlex Community, Hewlett-Packard Company
-- **Assembly copyright:** Copyright © 2012, Copyright © Hewlett-Packard Company 2008
+- **Assembly copyright:** Copyright © 2012, Copyright © 2013, Copyright © Hewlett-Packard Company 2008
 - **Recorded URLs:** <http://taskscheduler.codeplex.com/>, <http://taskscheduler.codeplex.com/license>
 
 ## License

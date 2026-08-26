@@ -210,7 +210,7 @@ namespace Microsoft.Win32.TaskScheduler
 		/// <param name="LogonType">A <see cref="TaskLogonType"/> value that defines what logon technique is used to run the registered task.</param>
 		/// <param name="sddl">The security descriptor associated with the registered task. You can specify the access control list (ACL) in the security descriptor for a task in order to allow or deny certain users and groups access to a task.</param>
 		/// <returns>A <see cref="Task"/> instance that represents the new task.</returns>
-		public Task RegisterTask(string Path, string XmlText, TaskCreation createType = TaskCreation.CreateOrUpdate, string UserId =REDACTED string password =REDACTED TaskLogonType LogonType = TaskLogonType.S4U, string sddl = null)
+		public Task RegisterTask(string Path, string XmlText, TaskCreation createType = TaskCreation.CreateOrUpdate, string UserId = null, string password = null, TaskLogonType LogonType = TaskLogonType.S4U, string sddl = null)
 		{
 			if (v2Folder != null)
 				return new Task(this.TaskService, v2Folder.RegisterTask(Path, XmlText, (int)createType, UserId, password, LogonType, sddl));
@@ -219,7 +219,7 @@ namespace Microsoft.Win32.TaskScheduler
 			{
 				TaskDefinition td = this.TaskService.NewTask();
 				XmlSerializationHelper.ReadObjectFromXmlText(XmlText, td);
-				return this.RegisterTaskDefinition(Path, td, createType, UserId =REDACTED null ? td.Principal.ToString() : UserId,
+				return this.RegisterTaskDefinition(Path, td, createType, UserId == null ? td.Principal.ToString() : UserId,
 					password, LogonType == TaskLogonType.S4U ? td.Principal.LogonType : LogonType, sddl);
 			}
 			catch
@@ -263,7 +263,7 @@ namespace Microsoft.Win32.TaskScheduler
 		/// or
 		/// Xml validation not available on Task Scheduler 1.0.
 		/// </exception>
-		public Task RegisterTaskDefinition(string Path, TaskDefinition definition, TaskCreation createType, string UserId, string password =REDACTED TaskLogonType LogonType = TaskLogonType.S4U, string sddl = null)
+		public Task RegisterTaskDefinition(string Path, TaskDefinition definition, TaskCreation createType, string UserId, string password = null, TaskLogonType LogonType = TaskLogonType.S4U, string sddl = null)
 		{
 			if (v2Folder != null)
 				return new Task(this.TaskService, v2Folder.RegisterTaskDefinition(Path, definition.v2Def, (int)createType, UserId, password, LogonType, sddl));
@@ -273,7 +273,7 @@ namespace Microsoft.Win32.TaskScheduler
 			if (LogonType == TaskLogonType.InteractiveTokenOrPassword && string.IsNullOrEmpty(password))
 				LogonType = TaskLogonType.InteractiveToken;
 			if (string.IsNullOrEmpty(UserId))
-				UserId =REDACTED;
+				UserId = System.Security.Principal.WindowsIdentity.GetCurrent().Name;
 			switch (LogonType)
 			{
 				case TaskLogonType.Group:
@@ -283,7 +283,7 @@ namespace Microsoft.Win32.TaskScheduler
 				case TaskLogonType.InteractiveToken:
 					flags |= (V1Interop.TaskFlags.RunOnlyIfLoggedOn | V1Interop.TaskFlags.Interactive);
 					if (String.IsNullOrEmpty(UserId))
-						UserId =REDACTED;
+						UserId = System.Security.Principal.WindowsIdentity.GetCurrent().Name;
 					definition.v1Task.SetAccountInformation(UserId, IntPtr.Zero);
 					break;
 				case TaskLogonType.ServiceAccount:

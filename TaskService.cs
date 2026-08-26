@@ -48,7 +48,7 @@ namespace Microsoft.Win32.TaskScheduler
 		/// <param name="accountDomain">The domain of the user specified in the <paramref name="userName"/> parameter.</param>
 		/// <param name="password">The password that is used to connect to the computer. If the user name and password are not specified, then the current token is used.</param>
 		/// <param name="forceV1">If set to <c>true</c> force Task Scheduler 1.0 compatibility.</param>
-		public TaskService(string targetServer, string userName = null, string accountDomain = null, string password =REDACTED bool forceV1 = false)
+		public TaskService(string targetServer, string userName = null, string accountDomain = null, string password = null, bool forceV1 = false)
 		{
 			this.BeginInit();
 			this.TargetServer = targetServer;
@@ -238,7 +238,7 @@ namespace Microsoft.Win32.TaskScheduler
 		/// <returns>
 		/// A <see cref="Task"/> instance of the registered task.
 		/// </returns>
-		public Task AddTask(string path, Trigger trigger, Action action, string UserId =REDACTED string Password =REDACTED TaskLogonType LogonType = TaskLogonType.InteractiveToken)
+		public Task AddTask(string path, Trigger trigger, Action action, string UserId = null, string Password = null, TaskLogonType LogonType = TaskLogonType.InteractiveToken)
 		{
 			TaskDefinition td = NewTask();
 
