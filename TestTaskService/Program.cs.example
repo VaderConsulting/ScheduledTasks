@@ -340,7 +340,7 @@ namespace TestTaskService
 			DisplayTask(t, false);
 			ts.RootFolder.DeleteTask(t.Name);
 
-			t = ts.Execute("notepad.exe").AtLogonOf("AMERICAS\\dahall").AsTask("Test");
+			t = ts.Execute("notepad.exe").AtLogonOf("EXAMPLE\\user").AsTask("Test");
 			DisplayTask(t, false);
 			ts.RootFolder.DeleteTask(t.Name);
 
