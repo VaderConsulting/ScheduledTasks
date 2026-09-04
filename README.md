@@ -27,6 +27,10 @@ VS 2012 C# wrapper for Windows Task Scheduler 1.0 and 2.0 (CodePlex TaskSchedule
 
 Open `TaskService.sln` in Visual Studio.
 
+## Requirements
+
+- Visual Studio 2012, .NET Framework 2.0, .NET Framework 3.5
+
 ## Attribution and provenance
 
 - **Authors (package metadata):** David Hall
