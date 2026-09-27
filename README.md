@@ -1,6 +1,6 @@
 # ScheduledTasks
 
-VS 2012 C# wrapper for Windows Task Scheduler 1.0 and 2.0 (CodePlex TaskScheduler by David Hall). `Microsoft.Win32.TaskScheduler` (.NET 2.0 library, assembly company CodePlex Community) wraps V1 and V2 COM as `TaskService`, `Task`, `TaskFolder`, `Trigger`, and `Action`, with fluent `Execute` helpers and `Trigger.FromCronFormat`. `TaskEditor` (.NET 3.5 UI library) adds localizable WinForms editors (AeroWizard, GroupControls, TimeSpan2); the solution also includes SecurityEditor, COMTask (`ITaskHandler` sample), TaskServiceExecutor, and C#/VB.NET test hosts. Open `TaskService.sln` in Visual Studio; this tree is a working copy of third-party source kept in Dave Robinson's Historical Dev archive.
+VS 2012 C# wrapper for Windows Task Scheduler 1.0 and 2.0 (CodePlex TaskScheduler by David Hall). `Microsoft.Win32.TaskScheduler` (.NET 2.0 library, assembly company CodePlex Community) wraps V1 and V2 COM as `TaskService`, `Task`, `TaskFolder`, `Trigger`, and `Action`, with fluent `Execute` helpers and `Trigger.FromCronFormat`. `TaskEditor` (.NET 3.5 UI library) adds localizable WinForms editors (AeroWizard, GroupControls, TimeSpan2); the solution also includes SecurityEditor, COMTask (`ITaskHandler` sample), TaskServiceExecutor, and C#/VB.NET test hosts. Open `TaskService.sln` in Visual Studio; this tree is a working copy of third-party source kept in my Historical Dev archive.
 
 **Source last updated:** 2013-08-14  
 **Language:** C#, VB.NET  
@@ -9,7 +9,7 @@ VS 2012 C# wrapper for Windows Task Scheduler 1.0 and 2.0 (CodePlex TaskSchedule
 
 ## What it is
 
-VS 2012 C# wrapper for Windows Task Scheduler 1.0 and 2.0 (CodePlex TaskScheduler by David Hall). `Microsoft.Win32.TaskScheduler` (.NET 2.0 library, assembly company CodePlex Community) wraps V1 and V2 COM as `TaskService`, `Task`, `TaskFolder`, `Trigger`, and `Action`, with fluent `Execute` helpers and `Trigger.FromCronFormat`. `TaskEditor` (.NET 3.5 UI library) adds localizable WinForms editors (AeroWizard, GroupControls, TimeSpan2); the solution also includes SecurityEditor, COMTask (`ITaskHandler` sample), TaskServiceExecutor, and C#/VB.NET test hosts. Open `TaskService.sln` in Visual Studio; this tree is a working copy of third-party source kept in Dave Robinson's Historical Dev archive.
+VS 2012 C# wrapper for Windows Task Scheduler 1.0 and 2.0 (CodePlex TaskScheduler by David Hall). `Microsoft.Win32.TaskScheduler` (.NET 2.0 library, assembly company CodePlex Community) wraps V1 and V2 COM as `TaskService`, `Task`, `TaskFolder`, `Trigger`, and `Action`, with fluent `Execute` helpers and `Trigger.FromCronFormat`. `TaskEditor` (.NET 3.5 UI library) adds localizable WinForms editors (AeroWizard, GroupControls, TimeSpan2); the solution also includes SecurityEditor, COMTask (`ITaskHandler` sample), TaskServiceExecutor, and C#/VB.NET test hosts. Open `TaskService.sln` in Visual Studio; this tree is a working copy of third-party source kept in my Historical Dev archive.
 
 ## Solution structure
 
