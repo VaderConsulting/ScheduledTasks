@@ -33,6 +33,8 @@ Open `TaskService.sln` in Visual Studio.
 
 ## Attribution and provenance
 
+Working copy from my Historical Dev folder.
+
 - **Authors (package metadata):** David Hall
 - **Assembly company:** CodePlex Community, Hewlett-Packard Company
 - **Assembly copyright:** Copyright © 2012, Copyright © 2013, Copyright © Hewlett-Packard Company 2008
